@@ -22,19 +22,19 @@ export default function HomePage({ setPage }) {
     // --- Dados dos Serviços ---
     const services = [
         {
-            image: "https://images.unsplash.com/photo-1599335615245-5d91437e78d8?q=80&w=1887&auto=format&fit=crop",
+            image: "https://i.pinimg.com/600x315/08/ed/47/08ed47f4b7d72f6674cbb4e1f74fc22d.jpg",
             title: "Corte Moderno",
             description: "Estilos atuais e personalizados para o seu visual."
         },
         {
-            image: "https://images.unsplash.com/photo-1621607512214-68297480165e?q=80&w=1770&auto=format&fit=crop",
-            title: "Barba Terapia",
-            description: "Cuidado completo com toalha quente e produtos especiais."
+            image: "https://i.pinimg.com/1200x/c1/95/c6/c195c63214759ece09baf39d803863a0.jpg",
+            title: "Corte Infantil",
+            description: "Oferecer um ambiente amigável para crianças pode fidelizar a família inteira."
         },
         {
-            image: "https://plus.unsplash.com/premium_photo-1661386019579-a47a11b1548e?q=80&w=1770&auto=format&fit=crop",
-            title: "Tratamento Capilar",
-            description: "Hidratação e fortalecimento para seus cabelos."
+            image: "https://i.pinimg.com/736x/1e/56/dd/1e56ddccd3afe66fd3b2ca828ec5401e.jpg",
+            title: "Combo Pai e Filho",
+            description: "Um desconto especial para pai e filho cortarem o cabelo juntos."
         }
     ];
 
@@ -42,7 +42,7 @@ export default function HomePage({ setPage }) {
     <div>
       {/* --- Seção Hero --- */}
       <section className="text-center py-20 bg-white rounded-lg shadow-md">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bem-vindo à Barbearia VIP</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bem-vindo à Barbearia</h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
           Seu estilo, nossa paixão. Oferecemos cortes de cabelo e barba com a máxima precisão e qualidade. Agende seu horário e viva uma experiência única.
         </p>

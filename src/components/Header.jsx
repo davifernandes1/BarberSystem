@@ -31,7 +31,7 @@ export default function Header({ setPage }) {
           onClick={() => setPage('home')}
         >
           <LogoIcon />
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Barbearia VIP</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Barbearia</h1>
         </div>
         <nav className="flex items-center gap-2 md:gap-4">
           <NavButton onClick={() => setPage('home')}>Home</NavButton>

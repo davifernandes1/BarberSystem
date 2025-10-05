@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 // --- Constantes e Componentes (sem alterações) ---
 const tiposDeCorte = { 'Corte Simples': '35.00', 'Corte + Barba': '60.00', 'Barba Terapia': '30.00', 'Sobrancelha': '15.00', 'Platinado': '150.00' };
 const barbeirosData = [
-    { id: 'carlos', nome: 'Carlos', foto: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=140&h=140&q=80' },
-    { id: 'joao', nome: 'João', foto: 'https://images.unsplash.com/photo-1542155030-8c24b61b3699?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=140&h=140&q=80' },
-    { id: 'pedro', nome: 'Pedro', foto: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=140&h=140&q=80' },
+    { id: 'jefferson', nome: 'Jefferson', foto: 'https://i.pinimg.com/1200x/10/8b/ce/108bce49f7a5be3e2e764df0429e8f42.jpg' },
+    { id: 'gerson', nome: 'Gerson', foto: 'https://i.pinimg.com/736x/7b/12/f3/7b12f388e180c61049a1ce77a95541ff.jpg' },
+    { id: 'cleiton', nome: 'Cleiton', foto: 'https://i.pinimg.com/736x/3a/5e/bc/3a5ebce992678e5020998b5a5b44290c.jpg' },
 ];
 
 const HorariosModal = ({ selectedDate, agendamentosDoDia, barbeiroSelecionado, onClose, onConfirmTime }) => {
