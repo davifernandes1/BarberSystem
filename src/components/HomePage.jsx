@@ -42,7 +42,7 @@ export default function HomePage({ setPage }) {
     <div>
       {/* --- Seção Hero --- */}
       <section className="text-center py-20 bg-white rounded-lg shadow-md">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bem-vindo à Barbearia</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bem-vindo à Chill Barber</h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
           Seu estilo, nossa paixão. Oferecemos cortes de cabelo e barba com a máxima precisão e qualidade. Agende seu horário e viva uma experiência única.
         </p>

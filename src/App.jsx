@@ -1,3 +1,6 @@
+//Chill Barber - Sistema de Agendamento de horarios para uma barbearia
+//Davi Fernandes Vieira - 2420172@faculdadecesusc.edu.br
+
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import HomePage from './components/HomePage.jsx';
@@ -44,7 +47,7 @@ export default function App() {
         {renderPage()}
       </main>
       <footer className="text-center p-6 text-gray-500 border-t border-gray-200 mt-8">
-        <p>Barbearia VIP &copy; 2025 - Todos os direitos reservados.</p>
+        <p>Chill Barber &copy;</p>
       </footer>
     </div>
   );

@@ -1,16 +1,62 @@
-# React + Vite
+# 💈 Chill Barber - Aplicativo de Agendamento 📅
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação web simples e funcional, desenvolvida em **React** e **Vite**, para simular o sistema de agendamento de uma barbearia.
 
-Currently, two official plugins are available:
+O design moderno é impulsionado pelo **Tailwind CSS**, utilizando uma paleta de cores inspirada em tons de bronze/âmbar para conferir um toque premium.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objetivo do Projeto
 
-## React Compiler
+O principal objetivo deste trabalho foi demonstrar o domínio de conceitos essenciais do desenvolvimento Frontend com React:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Estrutura de Múltiplas Páginas:** Implementação de navegação entre 3 telas principais.
+* **Gerenciamento de Estado:** Uso intensivo de `useState` para controlar formulários e o estado da aplicação.
+* **Persistência de Dados:** Garantia de que os agendamentos sejam salvos no navegador via `localStorage`.
+* **Componentização:** Divisão da interface em componentes reutilizáveis (`Header`, `ServiceCard`, etc.).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias Utilizadas
+
+| Categoria | Tecnologia | Detalhes |
+| :--- | :--- | :--- |
+| **Framework** | **React** | Utilizando hooks (`useState`, `useEffect`) para o coração da lógica de agendamento. |
+| **Estilização** | **Tailwind CSS** | Framework utility-first para um design responsivo e modular. |
+| **Ambiente** | **Vite** | Utilizado como ferramenta de build para um desenvolvimento rápido. |
+| **Tipografia** | **Roboto** | Fonte limpa e moderna para máxima legibilidade. |
+
+---
+
+## ✨ Funcionalidades em Destaque
+
+### 1. Sistema de Agendamento (`AgendamentoPage.jsx`)
+
+* **Formulário Controlado:** Todos os inputs (Nome, Barbeiro, Serviço) são vinculados ao estado do React para controle em tempo real.
+* **Seleção de Barbeiro:** Escolha entre os três profissionais disponíveis (Jefferson, Gerson, Cleiton).
+* **Validação Dinâmica de Horário:** Um modal de horários é exibido após a escolha da data, filtrando e desabilitando horários que já estão ocupados pelo barbeiro selecionado.
+
+### 2. Painel de Visualização (`CalendarioPage.jsx`)
+
+* **Visão Mensal da Ocupação:** Exibe todos os agendamentos salvos em um formato de calendário.
+* **Checagem de Lotação:** Ao clicar em um dia, um modal detalhado mostra a ocupação por horário e quantos barbeiros ainda estão livres, fornecendo uma visão clara da capacidade da barbearia.
+
+---
+
+## 🚀 Como Iniciar o Projeto Localmente
+
+Para rodar este aplicativo em seu ambiente de desenvolvimento, siga os passos abaixo:
+
+1.  **Instale as dependências do projeto:**
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+2.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```
+
+O aplicativo será iniciado e você poderá acessá-lo em `http://localhost:5173` (ou a porta indicada pelo seu console).

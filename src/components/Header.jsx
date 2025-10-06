@@ -1,15 +1,5 @@
 import React from 'react';
 
-// --- Ícone de Logo (Tesoura) ---
-const LogoIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 8l12 12M6 18L18 6" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14a2 2 0 100-4 2 2 0 000 4z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10a2 2 0 100-4 2 2 0 000 4z" />
-    </svg>
-);
-
-
 export default function Header({ setPage }) {
   // Componente interno para os botões de navegação
   const NavButton = ({ children, onClick }) => (
@@ -30,8 +20,8 @@ export default function Header({ setPage }) {
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => setPage('home')}
         >
-          <LogoIcon />
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Barbearia</h1>
+         
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Chill Barber</h1>
         </div>
         <nav className="flex items-center gap-2 md:gap-4">
           <NavButton onClick={() => setPage('home')}>Home</NavButton>

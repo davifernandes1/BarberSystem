@@ -77,7 +77,6 @@ export default function CalendarioPage({ agendamentos }) {
             cells.push(
                 <div key={day} className={`border rounded-md p-2 h-32 flex flex-col transition-all 
                                           ${isDomingo ? 'bg-red-50 text-red-500 cursor-not-allowed' : 'bg-white text-gray-800 cursor-pointer hover:shadow-lg hover:border-amber-500'}
-                                          {/* ▼▼▼ ALTERAÇÃO AQUI: Fundo transparente para o dia de hoje ▼▼▼ */}
                                           ${isHoje ? 'border-2 border-blue-500 bg-transparent' : ''}`}
                     onClick={() => !isDomingo && handleDayClick(day)}>
                     <span className={`font-bold ${isHoje ? 'text-blue-600' : 'text-gray-800'} ${isDomingo ? 'text-red-600' : ''}`}>{day}</span>
