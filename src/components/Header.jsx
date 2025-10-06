@@ -1,14 +1,12 @@
 import React from 'react';
 
 export default function Header({ setPage }) {
-  // Componente interno para os botões de navegação
   const NavButton = ({ children, onClick }) => (
     <button 
       onClick={onClick} 
       className="relative font-medium text-gray-700 hover:text-gray-900 py-2 px-3 transition-colors group"
     >
       {children}
-      {/* Linha animada que aparece ao passar o mouse */}
       <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
     </button>
   );

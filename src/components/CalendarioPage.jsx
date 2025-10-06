@@ -18,7 +18,6 @@ const HorariosModal = ({ dia, agendamentosDoDia, onClose }) => {
     });
 
     return (
-        // ▼▼▼ ALTERAÇÃO AQUI: Fundo transparente com desfoque ▼▼▼
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20" onClick={onClose}>
             <div className="bg-white p-8 rounded-lg shadow-xl max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">Horários para {dia.toLocaleDateString('pt-BR')}</h3>
