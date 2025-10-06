@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // --- Constantes e Componentes (sem alterações) ---
-const tiposDeCorte = { 'Corte Simples': '35.00', 'Corte + Barba': '60.00', 'Barba Terapia': '30.00', 'Sobrancelha': '15.00', 'Platinado': '150.00' };
+const tiposDeCorte = { 'Corte Simples': '35.00', 'Corte + Barba': '60.00', 'Barba Terapia': '30.00', 'Sobrancelha': '15.00', 'Platinado': '150.00' , 'Combo Pai e Filho': '70.00', 'Corte Infantil': '40.00' };
 const barbeirosData = [
     { id: 'jefferson', nome: 'Jefferson', foto: 'https://i.pinimg.com/1200x/10/8b/ce/108bce49f7a5be3e2e764df0429e8f42.jpg' },
     { id: 'gerson', nome: 'Gerson', foto: 'https://i.pinimg.com/736x/7b/12/f3/7b12f388e180c61049a1ce77a95541ff.jpg' },
@@ -99,7 +99,6 @@ export default function AgendamentoPage({ onAgendamentoSubmit, agendamentos }) {
             cells.push(
                 <div key={day} className={`border rounded-md p-2 h-24 flex flex-col items-center justify-center 
                                           ${isDomingo || isPassado ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-white text-gray-800 cursor-pointer hover:shadow-md hover:border-amber-500'}
-                                          {/* ▼▼▼ ALTERAÇÃO AQUI: Fundo transparente para o dia de hoje ▼▼▼ */}
                                           ${isHoje ? 'border-2 border-blue-500 bg-transparent' : ''}
                                           ${isSelected ? '!border-amber-500 !bg-amber-100 ring-2 ring-amber-300' : ''}
                                           transition-all duration-200`}
