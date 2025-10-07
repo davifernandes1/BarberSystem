@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import HorariosModal from '../components/HorariosModal';
 
-export default function CalendarioPage({ agendamentos }) {
+export default function CalendarioPage({ agendamentos, removerAgendamento }) {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDayModal, setSelectedDayModal] = useState(null);
     const diasDaSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
@@ -45,7 +45,7 @@ export default function CalendarioPage({ agendamentos }) {
                     <div className="flex-grow overflow-y-auto mt-1 text-xs space-y-1 pr-1">
                         {agendamentosDoDia.map(ag => (
                             <div key={ag.id} className="bg-amber-50 p-1 rounded border border-amber-200 text-left">
-                                <p className="font-semibold text-gray-800 truncate">{new Date(ag.dataHora).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })} - {ag.barbeiro}</p>
+                                <p className="font-semibold text-gray-800 truncate">{new Date(ag.dataHora).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })} - {ag.nome}</p>
                                 <p className="text-gray-600 truncate">{ag.tipoCorte}</p>
                             </div>
                         ))}
@@ -66,6 +66,8 @@ export default function CalendarioPage({ agendamentos }) {
                 selectedDate={selectedDayModal}
                 agendamentosDoDia={agendamentos.filter(ag => new Date(ag.dataHora).toDateString() === selectedDayModal.toDateString())}
                 onClose={() => setSelectedDayModal(null)}
+                // --- MUDANÇA AQUI: Passando a função para o modal ---
+                removerAgendamento={removerAgendamento}
               />
             )}
             <div className="flex justify-between items-center mb-6">

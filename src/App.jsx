@@ -6,11 +6,11 @@ import Header from './components/Header.jsx';
 import HomePage from './pages/HomePage.jsx';
 import AgendamentoPage from './pages/AgendamentoPage.jsx';
 import CalendarioPage from './pages/CalendarioPage.jsx';
-import ConfirmationModal from './components/ConfirmationModal.jsx'; 
+import ConfirmationModal from './components/ConfirmationModal.jsx';
 
 export default function App() {
   const [page, setPage] = useState('home');
-  const [showConfirmation, setShowConfirmation] = useState(false); 
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [agendamentos, setAgendamentos] = useState(() => {
     const agendamentosSalvos = localStorage.getItem('agendamentos');
     return agendamentosSalvos ? JSON.parse(agendamentosSalvos) : [];
@@ -20,7 +20,6 @@ export default function App() {
     localStorage.setItem('agendamentos', JSON.stringify(agendamentos));
   }, [agendamentos]);
 
-  
   const handleAgendamentoSubmit = (novoAgendamento) => {
     setAgendamentos([...agendamentos, novoAgendamento]);
     setShowConfirmation(true);
@@ -28,11 +27,14 @@ export default function App() {
 
   const handleCloseConfirmation = () => {
     setShowConfirmation(false);
-    setPage('calendario'); 
+    setPage('calendario');
   };
 
   const removerAgendamento = (id) => {
-    setAgendamentos(agendamentos.filter(ag => ag.id !== id));
+    // Adiciona uma confirmação antes de remover
+    if (window.confirm('Tem certeza que deseja cancelar este agendamento?')) {
+      setAgendamentos(agendamentos.filter(ag => ag.id !== id));
+    }
   };
 
   const renderPage = () => {
