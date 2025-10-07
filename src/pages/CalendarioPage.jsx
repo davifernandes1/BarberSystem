@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import HorariosModal from '../components/HorariosModal.jsx'; 
-
+import HorariosModal from '../components/HorariosModal';
 
 export default function CalendarioPage({ agendamentos }) {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -27,7 +26,7 @@ export default function CalendarioPage({ agendamentos }) {
         const cells = [];
         const hoje = new Date();
         hoje.setHours(0,0,0,0);
-        for (let i = 0; i < startDay; i++) { cells.push(<div key={`empty-${i}`} className="border rounded-md p-2 h-32 bg-gray-50 border-gray-200"></div>); }
+        for (let i = 0; i < startDay; i++) { cells.push(<div key={`empty-${i}`} className="border rounded-md p-2 h-36 bg-gray-50 border-gray-200"></div>); }
         for (let day = 1; day <= totalDays; day++) {
             const currentDayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
             currentDayDate.setHours(0,0,0,0);
@@ -36,15 +35,18 @@ export default function CalendarioPage({ agendamentos }) {
             const isHoje = currentDayDate.getTime() === hoje.getTime();
             const isDomingo = currentDayDate.getDay() === 0;
             cells.push(
-                <div key={day} className={`border rounded-md p-2 h-32 flex flex-col transition-all 
+                <div 
+                    key={day} 
+                    className={`border rounded-md p-2 h-36 flex flex-col transition-all
                                           ${isDomingo ? 'bg-red-50 text-red-500 cursor-not-allowed' : 'bg-white text-gray-800 cursor-pointer hover:shadow-lg hover:border-amber-500'}
                                           ${isHoje ? 'border-2 border-blue-500 bg-transparent' : ''}`}
                     onClick={() => !isDomingo && handleDayClick(day)}>
                     <span className={`font-bold ${isHoje ? 'text-blue-600' : 'text-gray-800'} ${isDomingo ? 'text-red-600' : ''}`}>{day}</span>
-                    <div className="flex-grow overflow-y-auto mt-1 text-xs space-y-1">
+                    <div className="flex-grow overflow-y-auto mt-1 text-xs space-y-1 pr-1">
                         {agendamentosDoDia.map(ag => (
-                            <div key={ag.id} className="bg-gray-200 p-1 rounded">
+                            <div key={ag.id} className="bg-amber-50 p-1 rounded border border-amber-200 text-left">
                                 <p className="font-semibold text-gray-800 truncate">{new Date(ag.dataHora).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })} - {ag.barbeiro}</p>
+                                <p className="text-gray-600 truncate">{ag.tipoCorte}</p>
                             </div>
                         ))}
                     </div>
