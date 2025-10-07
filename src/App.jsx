@@ -3,9 +3,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
-import HomePage from './components/HomePage.jsx';
-import AgendamentoPage from './components/AgendamentoPage.jsx';
-import CalendarioPage from './components/CalendarioPage.jsx';
+import HomePage from './pages/HomePage.jsx';
+import AgendamentoPage from './pages/AgendamentoPage.jsx';
+import CalendarioPage from './pages/CalendarioPage.jsx';
 import ConfirmationModal from './components/ConfirmationModal.jsx'; 
 
 export default function App() {

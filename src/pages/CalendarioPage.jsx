@@ -1,44 +1,6 @@
 import React, { useState } from 'react';
+import HorariosModal from '../components/HorariosModal.jsx'; 
 
-// --- Componente Modal para Visualizar Horários ---
-const HorariosModal = ({ dia, agendamentosDoDia, onClose }) => {
-    const horariosDisponiveis = [];
-    for (let i = 9; i < 21; i++) {
-        horariosDisponiveis.push(`${i.toString().padStart(2, '0')}:00`);
-        horariosDisponiveis.push(`${i.toString().padStart(2, '0')}:30`);
-    }
-    const horariosOcupadosPorBarbeiro = {};
-    agendamentosDoDia.forEach(ag => {
-        const data = new Date(ag.dataHora);
-        const horaMinuto = `${data.getHours().toString().padStart(2, '0')}:${data.getMinutes().toString().padStart(2, '0')}`;
-        if (!horariosOcupadosPorBarbeiro[horaMinuto]) {
-            horariosOcupadosPorBarbeiro[horaMinuto] = [];
-        }
-        horariosOcupadosPorBarbeiro[horaMinuto].push(ag.barbeiro);
-    });
-
-    return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20" onClick={onClose}>
-            <div className="bg-white p-8 rounded-lg shadow-xl max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Horários para {dia.toLocaleDateString('pt-BR')}</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-80 overflow-y-auto pr-2">
-                    {horariosDisponiveis.map(hora => {
-                        const barbeirosOcupados = horariosOcupadosPorBarbeiro[hora] || [];
-                        const isTotalmenteOcupado = barbeirosOcupados.length >= 3;
-                        return (
-                            <div key={hora} className={`p-2 rounded text-center text-sm ${isTotalmenteOcupado ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
-                                <span className="font-semibold">{hora}</span>
-                                {isTotalmenteOcupado ? (<p className="text-xs">Todos ocupados</p>) : (<p className="text-xs">{3 - barbeirosOcupados.length} barbeiro(s) livre(s)</p>)}
-                                {barbeirosOcupados.length > 0 && (<p className="text-xs text-red-500 mt-1">Ocupado por: {barbeirosOcupados.join(', ')}</p>)}
-                            </div>
-                        );
-                    })}
-                </div>
-                <button onClick={onClose} className="mt-6 w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-md transition">Fechar</button>
-            </div>
-        </div>
-    );
-};
 
 export default function CalendarioPage({ agendamentos }) {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -96,7 +58,14 @@ export default function CalendarioPage({ agendamentos }) {
 
     return (
         <div className="container mx-auto p-4 bg-white rounded-lg shadow-md">
-            {selectedDayModal && (<HorariosModal dia={selectedDayModal} agendamentosDoDia={agendamentos.filter(ag => new Date(ag.dataHora).toDateString() === selectedDayModal.toDateString())} onClose={() => setSelectedDayModal(null)} />)}
+            {selectedDayModal && (
+              <HorariosModal
+                mode="view"
+                selectedDate={selectedDayModal}
+                agendamentosDoDia={agendamentos.filter(ag => new Date(ag.dataHora).toDateString() === selectedDayModal.toDateString())}
+                onClose={() => setSelectedDayModal(null)}
+              />
+            )}
             <div className="flex justify-between items-center mb-6">
                 <button onClick={() => changeMonth(-1)} className="bg-gray-200 hover:bg-gray-300 p-2 rounded-full transition"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
                 <h2 className="text-2xl font-bold text-gray-800 capitalize">{currentDate.toLocaleString('pt-BR', { month: 'long', year: 'numeric' })}</h2>
