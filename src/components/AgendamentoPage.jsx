@@ -56,7 +56,6 @@ export default function AgendamentoPage({ onAgendamentoSubmit, agendamentos }) {
     const [selectedTime, setSelectedTime] = useState('');
     const [tipoCorte, setTipoCorte] = useState('Corte Simples');
     const [selectedBarber, setSelectedBarber] = useState(null);
-    const [observacoes, setObservacoes] = useState('');
     const [erro, setErro] = useState('');
     const [showTimeModal, setShowTimeModal] = useState(false);
     const preco = tiposDeCorte[tipoCorte];
@@ -79,8 +78,8 @@ export default function AgendamentoPage({ onAgendamentoSubmit, agendamentos }) {
         if (!nome || !selectedDate || !selectedTime || !selectedBarber) { setErro('Por favor, preencha todos os campos obrigatórios.'); return; }
         const [hora, minuto] = selectedTime.split(':');
         const dataHoraAgendamento = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), parseInt(hora), parseInt(minuto));
-        onAgendamentoSubmit({ id: Date.now(), nome, dataHora: dataHoraAgendamento.toISOString(), tipoCorte, preco, barbeiro: selectedBarber.nome, observacoes });
-        setNome(''); setSelectedDate(null); setSelectedTime(''); setTipoCorte('Corte Simples'); setSelectedBarber(null); setObservacoes('');
+        onAgendamentoSubmit({ id: Date.now(), nome, dataHora: dataHoraAgendamento.toISOString(), tipoCorte, preco, barbeiro: selectedBarber.nome });
+        setNome(''); setSelectedDate(null); setSelectedTime(''); setTipoCorte('Corte Simples'); setSelectedBarber(null);
     };
 
     const renderCalendarCells = () => {
